@@ -1,2 +1,3 @@
-# tic-tace-toe
-This is just demo game to demonstrate JS frameworks
+# Demo apps
+
+This is just demo to demonstrate JS frameworks
