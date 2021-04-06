@@ -30,7 +30,7 @@ bower_components
 **/node_modules
 .yarn-integrity
 jspm_packages/
-package-lock.json
+**/package-lock.json
 # TypeScript v1 declaration files
 typings/
 # Optional eslint cache
