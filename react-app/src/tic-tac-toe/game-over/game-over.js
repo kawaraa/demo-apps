@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { AppContext } from "../store/app-store";
+import { TicTacToeContext } from "../state-store/tic-tac-toe-store";
 import "./game-over.css";
 
 function GameOver() {
-  const store = useContext(AppContext);
+  const store = useContext(TicTacToeContext);
   const { restGame, winner } = store;
   const result = winner ? `The winner is ${winner}` : "Game ended in a draw";
 

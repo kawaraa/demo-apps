@@ -1,4 +1,4 @@
-.cell {
+.square {
   position: relative;
   flex: 33%;
   height: 0;
@@ -8,7 +8,15 @@
   box-shadow: inset 0px 0px 10px 1px #ababab7a;
   cursor: pointer;
 }
-.cell-value {
+.square.x {
+  background: darkturquoise;
+  box-shadow: none;
+}
+.square.o {
+  background: dodgerblue;
+  box-shadow: none;
+}
+.square-value {
   position: absolute;
   top: 0;
   left: 0;
@@ -19,4 +27,5 @@
   align-items: center;
   font-size: 60px;
   font-family: Verdana;
+  color: white;
 }
