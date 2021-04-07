@@ -9,3 +9,10 @@
   font-family: "Lato", "Comic", sans-serif, Arial, Verdana, "Helvetica", "Helvetica Neue", "Segoe UI",
     "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans";
 }
+.nf {
+  outline: none;
+}
+
+#root {
+  position: relative;
+}

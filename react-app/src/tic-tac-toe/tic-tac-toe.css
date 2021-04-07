@@ -1,6 +1,6 @@
 .tic-tac-toe {
   position: relative;
-  max-width: 600px;
+  max-width: 510px;
   margin: auto;
 }
 
@@ -8,7 +8,7 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  max-width: 600px;
+  width: 100%;
 }
 
 .current-player {
