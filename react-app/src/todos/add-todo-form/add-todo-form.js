@@ -1,8 +1,10 @@
 import React, { useContext, useState } from "react";
 import { TodosContext } from "../state-store/todos";
 import todoService from "../../service/todos";
+import { statuses, priorities } from "../prototype";
+import "./add-todo-form.css";
 
-const AddTodo = () => {
+const AddTodoForm = () => {
   const { setLoading, setError, addTodo } = useContext(TodosContext);
   const [newTodo, setNewTodo] = useState({ task: "", priority: "Low", status: "uncompleted" });
 
@@ -21,34 +23,36 @@ const AddTodo = () => {
   };
 
   return (
-    <form id="add-todo-form" onSubmit={handleSubmit}>
-      <textarea
-        className="textarea-field"
-        type="text"
-        name="task"
-        onChange={handleChange}
-        placeholder="Task"
-        required
-      />
-
-      <div id="priority-status">
-        <div className="select">
-          <label>Priority: </label>
-          <select name="priority" onChange={handleChange}>
-            <option value="Low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="Heigh">Heigh</option>
-          </select>
+    <form onChange={handleChange} onSubmit={handleSubmit} className="add-todo-form">
+      <div className="inputs-wrapper">
+        <div className="input-field">
+          <input type="text" name="task" required placeholder="Task" className="nf" />
         </div>
-        <div className="select">
-          <label>Status: </label>
-          <select name="status" onChange={handleChange}>
-            <option value="uncompleted">Not Completed</option>
-            <option value="inprogress">In Progress</option>
-            <option value="completed">Completed</option>
-          </select>
+
+        <div className="input-field">
+          <div className="select-wrapper">
+            <label htmlFor="priority">Priority: </label>
+            <select name="priority" defaultValue={priorities[0]} id="priority" className="nf">
+              {priorities.map((status, i) => (
+                <option defaultValue={i} key={i}>
+                  {status}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="select-wrapper">
+            <label htmlFor="status">Status: </label>
+            <select name="status" defaultValue={statuses[0]} id="status" className="nf">
+              {statuses.map((status, i) => (
+                <option defaultValue={i} key={i}>
+                  {status}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
       </div>
+
       <button className="btn" type="submit">
         Add
       </button>
@@ -56,4 +60,4 @@ const AddTodo = () => {
   );
 };
 
-export default AddTodo;
+export default AddTodoForm;

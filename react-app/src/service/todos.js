@@ -11,6 +11,7 @@ class TodoService {
   async create(todo) {
     // Validation can be here.
     todo.id = Math.random() * Math.random() + Date.now() + "";
+    todo.timestamp = Date.now();
     return this.todos.push(todo);
   }
   async delete(todoId) {
@@ -19,7 +20,7 @@ class TodoService {
   }
   async update(todo) {
     // Validation can be here.
-    const index = this.todos.findIndex((t) => t.id !== todo.id);
+    const index = this.todos.findIndex((t) => t.id === todo.id);
     this.todos[index].task = todo.task;
     this.todos[index].status = todo.status;
     this.todos[index].priority = todo.priority;
