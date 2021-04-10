@@ -5,7 +5,8 @@ import { statuses } from "../prototype";
 import "./todo.css";
 
 const Todo = ({ todo }) => {
-  const { setLoading, setError, deleteTodo, dateFormat } = useContext(TodosContext);
+  const { setLoading, deleteTodo, dateFormat } = useContext(TodosContext);
+  const [error, setError] = useState("");
   const [edit, setEdit] = useState(false);
   const [task, setTask] = useState(todo.task || "");
 
@@ -13,17 +14,17 @@ const Todo = ({ todo }) => {
     e.preventDefault();
     setLoading(true);
     const newTodo = await todoService.update({ ...todo, task });
+    setLoading(false);
     if (newTodo.error) setError(newTodo.error);
     setEdit(false);
-    setLoading(false);
   };
 
   const onDelete = async () => {
     setLoading(true);
     const result = await todoService.delete(todo.id);
+    setLoading(false);
     if (result.error) setError(result.error);
     else deleteTodo(todo);
-    setLoading(false);
   };
 
   return (
@@ -53,6 +54,7 @@ const Todo = ({ todo }) => {
       <button type="button" onClick={onDelete} className="btn-delete nf">
         ×
       </button>
+      {error && <p>{error}</p>}
     </li>
   );
 };

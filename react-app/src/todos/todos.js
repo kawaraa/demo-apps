@@ -6,20 +6,21 @@ import AddTodoForm from "./add-todo-form/add-todo-form";
 import Todo from "./todo/todo";
 import "./todos.css";
 
-function Todos() {
+function Todos(props) {
   const { loading, error, setError, todos, setTodos } = useContext(TodosContext);
 
   useEffect(() => {
     (async () => {
-      const todos = await todoService.get();
-      if (todos.error) setError(todos.error);
-      else setTodos(todos);
+      const todosResult = await todoService.get();
+      if (todosResult.error) setError(todosResult.error);
+      else setTodos(todosResult);
     })();
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (error) return <p className="todos error">{error}</p>;
 
-  const todoComponents = todos.map((todo, i) => <Todo todo={todo} key={i} />);
+  const todoComponents = todos.map((todo) => <Todo todo={todo} key={todo.id} />);
   return (
     <main className="todos container">
       <h1 className="todos-heading">Todos</h1>

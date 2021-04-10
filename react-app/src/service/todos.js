@@ -5,14 +5,15 @@ class TodoService {
   }
   async get() {
     // Query string can be here.
-    return this.todos;
+    return [...this.todos];
   }
 
   async create(todo) {
     // Validation can be here.
     todo.id = Math.random() * Math.random() + Date.now() + "";
     todo.timestamp = Date.now();
-    return this.todos.push(todo);
+    this.todos.push(todo);
+    return todo;
   }
   async delete(todoId) {
     this.todos = this.todos.filter((todo) => todo.id !== todoId);

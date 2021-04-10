@@ -12,7 +12,7 @@ const TodosStore = (props) => {
     setTodos([...todos, todo]);
   };
   const updateTodo = (todo) => {
-    const index = todos.findIndex((t) => t.id !== todo.id);
+    const index = todos.findIndex((t) => t.id === todo.id);
     todos[index].task = todo.task;
     todos[index].status = todo.status;
     todos[index].priority = todo.priority;
@@ -20,7 +20,9 @@ const TodosStore = (props) => {
   };
   const deleteTodo = (todo) => {
     // todos.splice(index, 1);
-    setTodos(todos.filter((t) => t.id !== todo.id));
+    const filteredTodos = todos.filter((t) => t.id !== todo.id);
+    console.log("todo :>> ", todo, filteredTodos);
+    setTodos(filteredTodos);
   };
   const state = {
     loading,
