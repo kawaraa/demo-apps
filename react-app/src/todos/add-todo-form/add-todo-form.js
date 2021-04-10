@@ -33,9 +33,9 @@ const AddTodoForm = () => {
           <div className="select-wrapper">
             <label htmlFor="priority">Priority: </label>
             <select name="priority" defaultValue={priorities[0]} id="priority" className="nf">
-              {priorities.map((status, i) => (
+              {priorities.map((priority, i) => (
                 <option defaultValue={i} key={i}>
-                  {status}
+                  {priority}
                 </option>
               ))}
             </select>

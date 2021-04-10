@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Link } from '../interface';
+
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
 
-  constructor() { }
+export class Navbar  {
+  show: boolean = false;
+  links: Link[]  = [{ path: "", text: "Tic Tac Toe" }, {path:"todos", text:"Todos"}];
 
-  ngOnInit(): void {
+  showNavbar() {
+    this.show = !this.show;
   }
 
 }

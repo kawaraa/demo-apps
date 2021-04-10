@@ -1,4 +1,13 @@
-<nav>
-  <a routerLink="/tic-tac-toe">Tic Tac Toe</a>
-  <a routerLink="/todos">Todos</a>
-</nav>
+<div>
+  <nav *ngIf="show" class="navbar">
+    <a *ngFor="let link of links" routerLink="{{link.path}}" (click)="showNavbar()" class="nav-link">
+      {{link.text}}
+    </a>
+  </nav>
+
+  <button (click)="showNavbar()" class="nav-btn nf {{(show && 'x' )}}">
+    <div class="nav-btn-bar1"></div>
+    <div class="nav-btn-bar2"></div>
+    <div class="nav-btn-bar3"></div>
+  </button>
+</div>

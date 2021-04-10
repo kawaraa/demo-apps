@@ -1,0 +1,30 @@
+<form (change)="handleChange($event)" (submit)="handleSubmit($event)" class="add-todo-form">
+  <div class="inputs-wrapper">
+    <div class="input-field">
+      <input type="text" name="task" required placeholder="Task" class="nf" />
+    </div>
+
+    <div class="input-field">
+      <div class="select-wrapper">
+        <label htmlFor="priority">Priority: </label>
+        <select name="priority" id="priority" class="nf">
+          <option *ngFor="let priority of priorities; index as i" [value]="i">
+            {{priority}}
+          </option>
+        </select>
+      </div>
+      <div class="select-wrapper">
+        <label htmlFor="status">Status: </label>
+        <select name="status" id="status" class="nf">
+          <option *ngFor="let status of statuses; index as i" [value]="i">
+            {{status}}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn" type="submit">
+    Add
+  </button>
+</form>
