@@ -1,0 +1,14 @@
+<ul>
+  <li *ngFor="let todo of todos" class="todo-item">
+    <span class="item-priority"> {{todo.priority}}</span>
+    <select name="status" id="status" class="item-status nf">
+      <option *ngFor="let status of statuses; index as i" value="i" [selected]="'todo.status === i'">
+        {{status}}
+      </option>
+    </select>
+    <span class="item-date">{{new Date(todo.timestamp)}</span>
+    <button type="button" onClick={onDelete} class="btn-delete nf">
+      ×
+    </button>
+  </li>
+</ul>

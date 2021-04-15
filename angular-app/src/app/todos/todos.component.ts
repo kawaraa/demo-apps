@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-// import { ActivatedRoute } from '@angular/router';
+import { Todo } from "../interface";
 
 @Component({
   selector: 'app-todos',
@@ -8,12 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todos.component.css']
 })
 export class Todos implements OnInit {
-
-  // constructor(private route: ActivatedRoute) { }
+todos: Todo[] = [{id:"7654s5xc", task:"ewkfb", status:0, priority:1, timestamp:Date.now()}]
+  constructor() { }
 
   ngOnInit(): void {
   
-    // this.route.paramMap.subscribe((params) => console.log(params.get("paramName")));
   }
 
 }
