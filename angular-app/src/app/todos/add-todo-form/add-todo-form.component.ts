@@ -15,11 +15,12 @@ export class AddTodoForm implements OnInit {
   }
 
   handleChange(e:any) {
-    console.log(e.target.value)
-   }
+    console.log(e.target.value);
+  }
+  
   handleSubmit(e: Event) {
     e.preventDefault();
-    console.log(e)
+    console.log(e);
 
   }
 

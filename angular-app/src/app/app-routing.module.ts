@@ -16,4 +16,4 @@ const routes: Routes = [{
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const RoutingComponents =[TicTacToe, Todos]
+export const RoutingComponents = [TicTacToe, Todos];
